@@ -12,6 +12,7 @@ export const usersData: User[] = [
     ativo: true,
     comissaoPadrao: 0,
     createdAt: new Date(),
+    _count: { montagens: 0 },
   },
   {
     id: "montador-1",
@@ -24,6 +25,7 @@ export const usersData: User[] = [
     ativo: true,
     comissaoPadrao: 10,
     createdAt: new Date(),
+    _count: { montagens: 2 },
   },
   {
     id: "montador-2",
@@ -36,6 +38,7 @@ export const usersData: User[] = [
     ativo: true,
     comissaoPadrao: 12,
     createdAt: new Date(),
+    _count: { montagens: 0 },
   }
 ];
 
@@ -48,6 +51,7 @@ export const lojasData: Loja[] = [
     cnpj: "12345678000199",
     ativo: true,
     createdAt: new Date(),
+    _count: { montagens: 1 },
   },
   {
     id: "loja-2",
@@ -57,6 +61,7 @@ export const lojasData: Loja[] = [
     cnpj: "98765432000188",
     ativo: true,
     createdAt: new Date(),
+    _count: { montagens: 1 },
   }
 ];
 
@@ -110,6 +115,7 @@ export const montagensData: Montagem[] = [
     montador: usersData[1],
     avaliacao: null,
     ocorrencias: [],
+    _count: { ocorrencias: 0 },
   },
   {
     id: "mont-2",
@@ -145,6 +151,7 @@ export const montagensData: Montagem[] = [
     montador: usersData[1],
     avaliacao: null,
     ocorrencias: [],
+    _count: { ocorrencias: 0 },
   }
 ];
 
