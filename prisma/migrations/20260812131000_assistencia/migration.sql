@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE "Montagem" ADD COLUMN "valorAssistencia" DOUBLE PRECISION NOT NULL DEFAULT 0;

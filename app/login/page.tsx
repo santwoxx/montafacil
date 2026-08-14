@@ -1,6 +1,5 @@
-import { loginAction } from "@/lib/actions/auth";
-import { Alerta, Field, Input } from "@/components/ui";
-import { GoogleLoginButton } from "@/components/GoogleLoginButton";
+import { loginDemoAction } from "@/lib/actions/auth";
+import { Alerta } from "@/components/ui";
 import { SubmitButton } from "@/components/SubmitButton";
 import { Logo } from "@/components/Logo";
 
@@ -97,52 +96,36 @@ export default async function LoginPage({
           <div className="rounded-3xl border border-slate-200/60 bg-white p-8 shadow-xl shadow-navy/5">
             {erro ? <Alerta tipo="erro">{erro}</Alerta> : null}
 
-            <div>
-              <p className="mb-2 text-sm font-medium text-slate-700">
-                Acesso Administrador
+            <div className="text-center mb-6">
+              <p className="text-sm font-medium text-slate-700 mb-2">
+                Modo de Demonstração
               </p>
-              <GoogleLoginButton />
+              <p className="text-xs text-slate-500 mb-4">
+                Escolha o tipo de acesso para visualizar o sistema. Nenhuma senha é necessária.
+              </p>
             </div>
 
-            <div className="my-6 flex items-center gap-3">
-              <div className="h-px flex-1 bg-slate-200" />
-              <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Acesso Montador</span>
-              <div className="h-px flex-1 bg-slate-200" />
-            </div>
+            <form action={async () => {
+              "use server";
+              await loginDemoAction("ADMIN");
+            }} className="mb-4">
+              <SubmitButton className="w-full text-base py-3 bg-navy hover:bg-navy-light text-white" pendingText="Entrando…">
+                Entrar como Administrador
+              </SubmitButton>
+            </form>
 
-            <form action={loginAction} className="space-y-5">
-              {proximo ? (
-                <input type="hidden" name="proximo" value={proximo} />
-              ) : null}
-
-              <Field label="E-mail">
-                <Input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="seuemail@exemplo.com"
-                  autoComplete="username"
-                />
-              </Field>
-
-              <Field label="Senha">
-                <Input
-                  type="password"
-                  name="senha"
-                  required
-                  placeholder="••••••••"
-                  autoComplete="current-password"
-                />
-              </Field>
-
-              <SubmitButton className="w-full text-base py-3" pendingText="Entrando…">
-                Entrar no Sistema
+            <form action={async () => {
+              "use server";
+              await loginDemoAction("MONTADOR");
+            }}>
+              <SubmitButton className="w-full text-base py-3 bg-gold hover:bg-gold-light text-white" pendingText="Entrando…">
+                Entrar como Montador
               </SubmitButton>
             </form>
           </div>
 
           <p className="mt-8 text-center text-xs text-slate-500">
-            Montador esqueceu a senha? <br className="lg:hidden" /> Fale com o administrador do sistema.
+            Versão de Demonstração
           </p>
         </div>
       </div>

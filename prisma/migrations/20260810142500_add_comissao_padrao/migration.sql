@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE "User" ADD COLUMN "comissaoPadrao" DOUBLE PRECISION NOT NULL DEFAULT 0;
